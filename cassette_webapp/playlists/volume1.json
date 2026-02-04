@@ -1,0 +1,16 @@
+{
+  "title": "Volume 1",
+  "door": "volume1/animations/door_open.mp4",
+  "cassette": "volume1/animations/cassette.mp4",
+  "tracks": [
+    { "title": "Life Eternal", "file": "volume1/audio/song.mp3", "accent": "rgba(255,80,80,0.9)" },
+    { "title": "Elizabeth", "file": "volume1/audio/Elizabeth.mp3", "accent": "rgba(90,170,255,0.9)" },
+    { "title": "Satanized", "file": "volume1/audio/Satanized.mp3", "accent": "rgba(90,170,255,0.9)" },
+    { "title": "Nothing", "file": "volume1/audio/Nothing.mp3", "accent": "rgba(90,170,255,0.9)" },
+    { "title": "The Most Beautiful Thing", "file": "volume1/audio/The_Most_Beautiful_Thing.mp3", "accent": "rgba(90,170,255,0.9)" },
+    { "title": "Living Proof", "file": "volume1/audio/Living_Proof.mp3", "accent": "rgba(90,170,255,0.9)" },
+    { "title": "Easy", "file": "volume1/audio/Easy.mp3", "accent": "rgba(90,170,255,0.9)" },
+    { "title": "Main Agar Kahoon", "file": "volume1/audio/Main_Agar_Kahoon.mp3", "accent": "rgba(90,170,255,0.9)" },
+    { "title": "Beginning Middle End", "file": "volume1/audio/Beginning_Middle_End.mp3", "accent": "rgba(90,170,255,0.9)" }
+  ]
+}

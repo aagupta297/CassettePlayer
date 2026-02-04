@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+  <title>Cassette Walkman</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div id="app" class="app">
+
+    <!-- Door animation overlay (source swapped by JS per playlist) -->
+    <div id="doorOverlay" class="doorOverlay" aria-hidden="true">
+      <video id="doorVideo" class="doorVideo" muted playsinline preload="auto">
+        <source id="doorSource" src="" type="video/mp4" />
+      </video>
+    </div>
+
+    <!-- Cassette background (source swapped by JS per playlist) -->
+    <video id="cassette" class="cassette" muted loop playsinline preload="auto">
+      <source id="cassetteSource" src="" type="video/mp4" />
+    </video>
+
+    <!-- Controls -->
+    <header class="walkmanBar" role="banner">
+      <div class="walkmanPanel" aria-label="Walkman controls">
+
+<!--        <div class="brand">-->
+<!--          <div class="logo">WALK•MAN</div>-->
+<!--          <div id="volumeLabel" class="trackTitle">—</div>-->
+<!--        </div>-->
+
+<!--        <div class="controls" role="group" aria-label="Playback controls">-->
+<!--          <button id="powerBtn" class="btn btnPower latch" type="button" aria-label="Power on/off">-->
+<!--            <span class="icon">◯</span>-->
+<!--            <span class="label">OFF</span>-->
+<!--          </button>-->
+
+<!--          <button id="rewBtn" class="btn momentary" type="button" aria-label="Rewind">-->
+<!--            <span class="icon">◀◀</span>-->
+<!--            <span class="label">REW</span>-->
+<!--          </button>-->
+
+<!--          <button id="playPauseBtn" class="btn btnPlay latch" type="button" aria-label="Play or pause" disabled>-->
+<!--            <span id="playPauseIcon" class="icon">▶</span>-->
+<!--            <span class="label">PLAY</span>-->
+<!--          </button>-->
+
+<!--          <button id="ffBtn" class="btn momentary" type="button" aria-label="Fast forward">-->
+<!--            <span class="icon">▶▶</span>-->
+<!--            <span class="label">FF</span>-->
+<!--          </button>-->
+
+<!--          <button id="prevBtn" class="btn momentary" type="button" aria-label="Previous track">-->
+<!--            <span class="icon">|◀◀</span>-->
+<!--            <span class="label">PREV</span>-->
+<!--          </button>-->
+
+<!--          <button id="nextBtn" class="btn momentary" type="button" aria-label="Next track">-->
+<!--            <span class="icon">▶▶|</span>-->
+<!--            <span class="label">NEXT</span>-->
+<!--          </button>-->
+<!--        </div>-->
+
+<!--        <div class="statusArea">-->
+<!--          <div id="status" class="status">Power off</div>-->
+<!--          <div id="rotate" class="rotateHint">Rotate to landscape for the best view</div>-->
+<!--        </div>-->
+
+<!--        &lt;!&ndash; current track title can be shown elsewhere if you like &ndash;&gt;-->
+<!--        <div id="trackTitle" class="trackTitle" style="display:none;">—</div>-->
+
+        <div class="walkmanRow">
+  <div id="status" class="status">Power off</div>
+
+  <div class="controls" role="group" aria-label="Playback controls">
+    <button id="powerBtn" class="btn btnPower latch" type="button" aria-label="Power on/off">
+      <span class="icon">◯</span>
+      <span class="label">ON</span>
+    </button>
+
+    <button id="rewBtn" class="btn momentary" type="button" aria-label="Rewind">
+      <span class="icon">◀◀</span>
+      <span class="label">REW</span>
+    </button>
+
+    <button id="playPauseBtn" class="btn btnPlay latch" type="button" aria-label="Play or pause" disabled>
+      <span id="playPauseIcon" class="icon">▶</span>
+      <span class="label">PLAY</span>
+    </button>
+
+    <button id="ffBtn" class="btn momentary" type="button" aria-label="Fast forward">
+      <span class="icon">▶▶</span>
+      <span class="label">FF</span>
+    </button>
+
+    <button id="prevBtn" class="btn momentary" type="button" aria-label="Previous track">
+      <span class="icon">|◀◀</span>
+      <span class="label">PREV</span>
+    </button>
+
+    <button id="nextBtn" class="btn momentary" type="button" aria-label="Next track">
+      <span class="icon">▶▶|</span>
+      <span class="label">NEXT</span>
+    </button>
+  </div>
+
+<!--  <div id="volumeLabel" class="trackPill">—</div>-->
+  <div id="trackTitle" class="trackPill">—</div>
+</div>
+
+<div id="rotate" class="rotateHint">Rotate to landscape for the best view</div>
+
+      </div>
+    </header>
+
+    <audio id="audio" preload="auto"></audio>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

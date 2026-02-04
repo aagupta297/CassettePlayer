@@ -1,0 +1,305 @@
+/* =========================================
+   style.css — CLEAN RESET (no zoom, slim bar)
+   ========================================= */
+
+:root{
+  --ink: rgba(255,255,255,0.92);
+  --ink-dim: rgba(255,255,255,0.70);
+
+  --glass: rgba(10, 10, 14, 0.28);
+  --glass2: rgba(10, 10, 14, 0.16);
+  --stroke: rgba(255,255,255,0.22);
+  --stroke2: rgba(255,255,255,0.10);
+  --shadow: rgba(0,0,0,0.55);
+
+  --accent: rgba(255,80,80,0.9);
+}
+
+/* --- Page baseline --- */
+html, body{
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  background: #000;
+  color: var(--ink);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  overflow: hidden;
+}
+
+#app, .app{
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  background: #000;
+}
+
+/* =========================================
+   VIDEO LAYERS — IMPORTANT: NO ZOOM
+   ========================================= */
+
+/* Cassette background video (plays when music plays) */
+#cassette{
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: contain; /* NO crop/zoom */
+  background: #000; /* letterbox bars */
+  z-index: 1;
+}
+
+/* Door overlay container */
+#doorOverlay{
+  position: fixed;
+  inset: 0;
+  display: none; /* JS shows it */
+  place-items: center;
+  z-index: 6;
+  pointer-events: none; /* never block controls */
+  background: transparent;
+}
+
+/* Door animation video (plays once on Power ON) */
+#doorVideo{
+  width: 100vw;
+  height: 100vh;
+  object-fit: contain; /* NO crop/zoom */
+  background: #000;
+}
+
+/* =========================================
+   WALKMAN CONTROL BAR — slim, centred
+   ========================================= */
+
+.walkmanBar{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+
+  /* iPhone/Android safe area */
+  padding: calc(env(safe-area-inset-top, 0px) + 6px) 8px 6px;
+  pointer-events: none;
+}
+
+.walkmanPanel{
+  pointer-events: auto;
+  margin: 0 auto;
+  width: min(1100px, 98vw);
+
+  /* Slimmer height */
+  padding: 8px 10px;
+
+  background: linear-gradient(180deg, var(--glass), var(--glass2));
+  border: 1.5px solid var(--stroke);
+  border-radius: 14px;
+
+  box-shadow: 0 10px 26px var(--shadow);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Subtle dashed inner border */
+.walkmanPanel::before{
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border: 1px dashed var(--stroke2);
+  border-radius: 12px;
+  pointer-events: none;
+}
+
+/* Make sure ::before positioning works */
+.walkmanPanel{
+  position: relative;
+}
+
+/* =========================================
+   TOP ROW LAYOUT — one line
+   ========================================= */
+
+.brand{
+  display: none; /* hide the old multi-row brand block to keep it slim */
+}
+
+/* Single-row layout: left status, centre controls, right track label */
+.walkmanRow{
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Left side status */
+.status{
+  font-size: 12px;
+  opacity: 0.9;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Centre controls */
+.controls{
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+/* Right side track label */
+.trackPill{
+  justify-self: end;
+  font-size: 12px;
+  font-weight: 650;
+  color: var(--ink);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 999px;
+  padding: 6px 10px;
+  max-width: 46vw;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Rotate hint (optional) */
+.rotateHint{
+  display: none;
+  margin-top: 6px;
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+@media (orientation: portrait){
+  .rotateHint{ display: block; }
+}
+
+/* =========================================
+   BUTTONS — hand-drawn-ish + depress
+   ========================================= */
+
+.btn{
+  appearance: none;
+  border: 2px solid rgba(255,255,255,0.32);
+  background: rgba(0,0,0,0.22);
+  color: var(--ink);
+  border-radius: 12px;
+
+  padding: 7px 10px;
+  min-width: 76px;
+
+  cursor: pointer;
+  user-select: none;
+
+  box-shadow: 0 8px 0 rgba(0,0,0,0.45);
+  transform: translateY(0);
+}
+
+.btn::before{
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border-radius: 9px;
+  border: 1px solid rgba(255,255,255,0.14);
+  pointer-events: none;
+}
+.btn{ position: relative; }
+
+.btn .icon{
+  display: block;
+  font-size: 14px;
+  line-height: 1.1;
+}
+
+.btn .label{
+  display: block;
+  margin-top: 3px;
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: var(--ink-dim);
+}
+
+/* Momentary: press only while held */
+.btn.momentary:active{
+  transform: translateY(5px);
+  box-shadow: 0 3px 0 rgba(0,0,0,0.45);
+}
+
+/* Latched: stays pressed */
+.btn.is-latched{
+  transform: translateY(5px);
+  box-shadow: 0 3px 0 rgba(0,0,0,0.45);
+}
+
+/* Disabled */
+.btn[disabled]{
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* Make POWER + PLAY feel slightly special */
+.btnPower, .btnPlay{
+  border-color: rgba(255,255,255,0.40);
+}
+
+/* =========================================
+   MOBILE TIGHTENING
+   ========================================= */
+
+@media (max-width: 520px){
+  .btn{
+    min-width: 62px;
+    padding: 6px 8px;
+  }
+  .btn .label{
+    font-size: 9px;
+  }
+  .trackPill{
+    max-width: 40vw;
+    padding: 5px 8px;
+  }
+}
+
+/* @media (max-width: 520px){
+  .walkmanBar{
+    padding: calc(env(safe-area-inset-top, 0px) + 4px) 6px 4px;
+  }
+
+  .walkmanPanel{
+    padding: 6px 8px;
+    border-radius: 12px;
+  }
+
+  .controls{
+    gap: 6px;
+  }
+
+  .btn{
+    min-width: 56px;
+    padding: 5px 7px;
+    border-radius: 10px;
+  }
+
+  .btn .icon{
+    font-size: 13px;
+  }
+
+  .btn .label{
+    font-size: 8px;
+    letter-spacing: 0.8px;
+    margin-top: 2px;
+  }
+
+  .trackPill{
+    max-width: 38vw;
+    padding: 4px 7px;
+    font-size: 11px;
+  }
+
+  .status{
+    font-size: 11px;
+  }
+} */

@@ -1,0 +1,13 @@
+{
+  "title": "Volume 2",
+  "door": "volume2/animations/door_open.mp4",
+  "cassette": "volume2/animations/cassette.mp4",
+  "tracks": [
+    { "title": "Nothing", "file": "volume2/audio/Nothing.mp3", "accent": "rgba(90,170,255,0.9)" },
+    { "title": "The Most Beautiful Thing", "file": "volume2/audio/The_Most_Beautiful_Thing.mp3", "accent": "rgba(90,170,255,0.9)" },
+    { "title": "Living Proof", "file": "volume2/audio/Living_Proof.mp3", "accent": "rgba(90,170,255,0.9)" },
+    { "title": "Easy", "file": "volume2/audio/Easy.mp3", "accent": "rgba(90,170,255,0.9)" },
+    { "title": "Main Agar Kahoon", "file": "volume2/audio/Main_Agar_Kahoon.mp3", "accent": "rgba(90,170,255,0.9)" },
+    { "title": "Beginning Middle End", "file": "volume2/audio/Beginning_Middle_End.mp3", "accent": "rgba(90,170,255,0.9)" }
+  ]
+}
