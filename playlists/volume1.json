@@ -68,7 +68,7 @@
     { "title": "Perfect", "file": "volume1/audio/Perfect.mp3", "accent": "rgba(90,170,255,0.9)" },
     { "title": "Dandelions", "file": "volume1/audio/Dandelions.mp3", "accent": "rgba(90,170,255,0.9)" },
     { "title": "Until I Found You", "file": "volume1/audio/Until_I_Found_You.mp3", "accent": "rgba(90,170,255,0.9)" },
-    { "title": "Kiss Me", "file": "volume1/audio/Kiss_Me_Ed_Sheeran.mp3", "accent": "rgba(90,170,255,0.9)" },
-    { "title": "Kiss Me", "file": "volume1/audio/Kiss_Me_Sixpence_None_The_Richer.mp3", "accent": "rgba(90,170,255,0.9)" }
+    { "title": "Kiss Me", "file": "volume1/audio/Kiss_Me.mp3", "accent": "rgba(90,170,255,0.9)" },
+    { "title": "Kiss Me", "file": "volume1/audio/Kiss_Me_2.mp3", "accent": "rgba(90,170,255,0.9)" }
   ]
 }
